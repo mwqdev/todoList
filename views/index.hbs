@@ -1,0 +1,23 @@
+<h1>{{ title }}</h1>
+<form>
+    <label for="newTask">Create a new task: </label><input type="text" name="newTask" id="newTask">
+    <button type="submit" formaction="/new-task">+</button>
+    <h2>Incomplete tasks:</h2>
+</form>
+<ul>
+    {{#todo}}
+        {{# unless complete }}
+            <li>{{ name }} <a href="{{ name }}"><button type=button>&#10004</button></a>
+            </li>
+        {{/unless}}
+    {{/todo}}
+</ul>
+<h2>Completed tasks:</h2>
+<ul class="completed-tasks">
+    {{#todo}}
+        {{# if complete }}
+            <li>{{ name }}</li>
+        {{/if}}
+    {{/todo}}
+</ul>
+</form>
